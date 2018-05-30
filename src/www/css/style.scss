@@ -1,0 +1,83 @@
+.theme{
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+}
+
+.wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    z-index: 5;
+}
+
+.wrapper-vertical{
+    width: 100vw;
+    height: calc(100vw/16*9);
+    font-size: 5vw;
+}
+
+.wrapper-horizontal{
+    width: calc(100vh/9*16);
+    height: 100vh;
+    font-size: 5vh;
+}
+
+.assets{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.bg{
+    width: 100%;
+    height: 100%;
+    background: #B2FEFA;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #0ED2F7, #B2FEFA);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #0ED2F7, #B2FEFA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.commu-screen{
+    position: absolute;
+    top: 60%;
+    left: 25%;
+    width: 50%;
+    height: 27.5%;
+}
+
+.commu-name {
+    height: 22%;
+    width: 30%;
+    box-sizing: border-box;
+    border: solid medium #424242;
+    border-radius: 10px;
+    font-size: 100%; //ここもjsでフィックスしたほうがいいかも？
+    line-height: 100%;
+    text-align: center;
+    background-color: rgba(250,250,250,0.7);
+    letter-spacing: 1px;
+}
+
+.commu-text {
+    box-sizing: border-box;
+    height: 68%;
+    margin-top: 1.5%;
+    width: 100%;
+    padding: 2.75% 2.75%;
+    font-size: 34px;
+    border: solid medium #424242;
+    border-radius: 10px;
+    line-height: 1.35em;
+    background-color: rgba(250,250,250,0.7);
+    letter-spacing: 1px;
+}
+
+// 動的に描画領域がコントロールされるので、ざっくりいえば割合表記だけで完全なフレキシブルUIが作れる。
+// まずはUIを組むところじゃなくて、動的に一定のアスペクト比を常にキープするやつを作ろう。
