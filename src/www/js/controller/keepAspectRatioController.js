@@ -1,4 +1,4 @@
-class ChangeWindowSizeListener {
+class KeepAspectRatioController {
     constructor(){
         //this.moveFlag=false;
         window.addEventListener("resize",function () {
@@ -7,4 +7,4 @@ class ChangeWindowSizeListener {
     }
 }
 
-let changeWindowSizeListener = new ChangeWindowSizeListener();
+let keepAspectRatioController = new KeepAspectRatioController();

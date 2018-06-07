@@ -1,4 +1,4 @@
-class KeepAspectRatio {
+class KeepAspectRatioModule {
     constructor(){ //DOM生成後に動く必要ありっぽい
         this.wrapper = document.querySelector(".landscape");
         this.state = 100;
@@ -25,4 +25,4 @@ class KeepAspectRatio {
 
 }
 
-let keepAspectRatio = new KeepAspectRatio();
+let keepAspectRatio = new KeepAspectRatioModule();
