@@ -1,0 +1,1 @@
+let pointerEvent = window.ontouchstart === null ? "touchstart" : "click";
