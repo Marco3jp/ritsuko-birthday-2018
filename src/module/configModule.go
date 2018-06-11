@@ -18,17 +18,15 @@ func (self ConfigModule) GetConfig(userId int, token string) *[]byte {
 	fmt.Printf("%d %s\n",userId,token)
 
 	row := self.DB.QueryRow(
-		"select IdolRealName,ProducerName,SceneId,FirstEndpoint from config where userId = ? and token = ?",
+		"select IdolRealName,IdolName,ProducerName,SceneId,FirstEndpoint from config where userId = ? and token = ?",
 		userId,
 		token)
 
-	var conf [4]string
-	err := row.Scan(&conf[0],&conf[1],&conf[2],&conf[3])
-
-	log.Printf("pointA : %+v",conf[0])
+	var sceneId string
+	err := row.Scan(&config.IdolRealName, &config.IdolName, &config.ProducerName, &sceneId, &config.FirstEndpoint)
 
 	if err != nil{
-		log.Printf("pointB : %+v",err)
+		log.Printf("pointA : %+v",err)
 		if err == sql.ErrNoRows{
 			config.Result = false
 		}
@@ -36,13 +34,10 @@ func (self ConfigModule) GetConfig(userId int, token string) *[]byte {
 		config.Result = true
 	}
 
-	config.IdolRealName = conf[0]
-	config.ProducerName = conf[1]
-	config.SceneID, err = strconv.Atoi(conf[2])
-	config.FirstEndpoint = conf[3]
+	config.SceneID, err = strconv.Atoi(sceneId)
 
 	if err != nil{
-		log.Printf("pointC : %+v",err)
+		log.Printf("pointB : %+v",err)
 	}
 
 	configJson,err := json.Marshal(config)
