@@ -6,12 +6,12 @@ class StepController {
             if(e.key==="Enter") {
                 that.stepControl();
             }
-        })
+        });
     }
 
     stepControl() {
-        console.log("click or enter");
-        //stepModule.stepHandle();
+        console.log("click or enter\n");
+        stepModule.stepHandle();
     }
 }
 
