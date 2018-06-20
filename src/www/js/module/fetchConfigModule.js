@@ -4,16 +4,17 @@ class FetchConfigModule {
             return response.json();
         }).then(function (config) {
             console.log(config);
+            info.idolRealName = config.idolRealName;
+            info.idolName = config.idolName;
+            info.producerName = config.producerName;
 
-            state.idolRealName = config.idolRealName;
-            state.idolName = config.idolName;
-            state.producerName = config.producerName;
             state.sceneId = config.sceneId;
-            state.producerName = config.producerName;
-            state.nextEndpoint = config.firstEndpoint;
+            state.firstSceneEndpoint = config.firstEndpoint;
+
+            fetchSceneModule.fetchScene(host+state.firstSceneEndpoint);
         });
 
-        console.log(state);
+        //console.log(state);
     }
 }
 
