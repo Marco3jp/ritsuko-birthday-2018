@@ -25,4 +25,4 @@ class KeepAspectRatioModule {
 
 }
 
-let keepAspectRatio = new KeepAspectRatioModule();
+let keepAspectRatioModule = new KeepAspectRatioModule();
